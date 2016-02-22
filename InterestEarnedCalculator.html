@@ -1,0 +1,40 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <title>Interest Earned Calculator</title>
+</head>
+<body>
+    <script type="text/javascript">
+        
+        // gathering user inputs
+        var amountInvested = prompt("First, please tell me the amount of money you have invested. Do not include the $ sign. Example: 100.00");
+        var interestRate = prompt("Now, please tell me the interest rate that applies to your investment. Please format your entry using a decimal. Example: .05 for 5%");
+        var term = prompt("Finally, please tell me, using whole numbers, how man years you plan to keep this investment active. Example: 2");
+        alert("Thank you! Please close this prompt and check the page. The interest earned calculations will be listed for you there.");
+        
+        // converting puts as needed
+        term = parseInt(term);
+        amountInvested = parseFloat(amountInvested);
+        interestRate = parseFloat(interestRate);
+        
+        
+        //executing calculations and outputting to the page
+        var interestEarned=0.00;
+        var totalMoney=amountInvested;
+        
+        for (year=1; year>=1 && year<=term; year++) {
+            interestEarned = (totalMoney * interestRate);
+            totalMoney = (totalMoney + interestEarned);
+            interestEarned = parseFloat(interestEarned).toFixed(2);
+            totalMoney = parseFloat(totalMoney).toFixed(2);
+            document.write("<strong>AT YEAR " + year + ":</strong><br/>");
+            document.write("Interest Earned This Period: $" + interestEarned + ".<br/>");
+            document.write("Total Investment Now Equals: $" + totalMoney + ".<br/><br/>");
+            interestEarned = parseFloat(interestEarned);
+            totalMoney = parseFloat(totalMoney);
+        }
+        
+    </script>
+</body>
+</html>
