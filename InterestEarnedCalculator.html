@@ -5,25 +5,28 @@
     <title>Interest Earned Calculator</title>
 </head>
 <body>
+    
     <script type="text/javascript">
         
-        // gathering user inputs
+        /* gathering user inputs */
         var amountInvested = prompt("First, please tell me the amount of money you have invested. Do not include the $ sign. Example: 100.00");
         var interestRate = prompt("Now, please tell me the interest rate that applies to your investment. Please format your entry using a decimal. Example: .05 for 5%");
         var term = prompt("Finally, please tell me, using whole numbers, how man years you plan to keep this investment active. Example: 2");
         alert("Thank you! Please close this prompt and check the page. The interest earned calculations will be listed for you there.");
         
-        // converting inputs as needed
+        /* converting puts as needed */
         term = parseInt(term);
         amountInvested = parseFloat(amountInvested);
         interestRate = parseFloat(interestRate);
         
-        //executing calculations and outputting to the page
+        /* executing calculations and outputting to the page */
         var interestEarned=0.00;
         var totalMoney=amountInvested;
+        var interestTally=0.00;
         
         for (year=1; year>=1 && year<=term; year++) {
             interestEarned = (totalMoney * interestRate);
+            interestTally = (interestTally + interestEarned)
             totalMoney = (totalMoney + interestEarned);
             interestEarned = parseFloat(interestEarned).toFixed(2);
             totalMoney = parseFloat(totalMoney).toFixed(2);
@@ -33,6 +36,10 @@
             interestEarned = parseFloat(interestEarned);
             totalMoney = parseFloat(totalMoney);
         }
+        
+        /* provides user with total of interest earned over full term */
+        interestTally = parseFloat(interestTally).toFixed(2);
+        document.write("<strong>Total interest earned over " + term + " years: $" + interestTally + ".</strong>");
         
     </script>
 </body>
